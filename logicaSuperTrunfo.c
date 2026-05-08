@@ -10,6 +10,7 @@ int main() {
     // Definição das variáveis para armazenar as propriedades das cidades
     // Você pode utilizar o código do primeiro desafio
     int escolhaClient;
+    int escolha1, escolha2;
 
      // Variaveis para a carta 1
     char estado1[3];
@@ -128,8 +129,125 @@ int main() {
     //SUPER PODER CARTA 2
     superpoder2 = (float)populacao2 + area2 + (float)pib2 + (float)turisticos2 + percapita2 + (1.0 / densidade2);
 
-    //DESAFIO AVENTUREIRO ATUAL.
+    //DESAFIO MESTRE COMLETO:
 
+    printf("\n==== ESCOLHA O PRIMEIRO ATRIBUTO ====\n");
+    printf("1 - POPULAÇÃO\n");
+    printf("2 - ÁREA\n");
+    printf("3 - PIB\n");
+    printf("4 - PONTOS TURISTICOS\n");
+    printf("5 - DENSIDADE DEMOGRÁFICA\n");
+    printf("Escolha um atributo: ");
+    scanf("%d", &escolha1);
+
+    printf("\n==== ESCOLHA O SEGUNDO ATRIBUTO ====\n");
+    printf("Escolha um atributo diferente!!\n");
+    //O IF VAI VERIFICAR CASO ALGUMA OPÇÃO JÁ FOI SELECIONADO, SE JÁ FOI ELE NÃO IRA EXIBIR
+    if (escolha1 != 1) printf("1 - POPULAÇÃO\n");
+    if (escolha1 != 2) printf("2 - ÁREA\n");
+    if (escolha1 != 3) printf("3 - PIB\n");
+    if (escolha1 != 4) printf("4 - PONTOS TURISTICOS\n");
+    if (escolha1 != 5) printf("5 - DENSIDADE DEMOGRÁFICA\n");
+    printf("Escolha um atributo: ");
+    scanf("%d", &escolha2);
+
+    // PROTEÇÃO CASO O USUARIO USE O MESMO NÚMERO DA OPÇÃO ANTERIOR
+    if (escolha1 == escolha2) {
+        printf("ERRO: Escolha atributos diferentes, reinicie o programa!!");
+        return 0; // Se der erro o programa morre aqui
+    }
+
+    double escolha1carta1, escolha2carta1;
+    double escolha1carta2, escolha2carta2;
+
+    switch (escolha1) {
+        case 1: escolha1carta1 = populacao1; escolha2carta1 = populacao2; break;
+        case 2: escolha1carta1 = area1; escolha2carta1 = area2; break;
+        case 3: escolha1carta1 = pib1; escolha2carta1 = pib2; break;
+        case 4: escolha1carta1 = turisticos1; escolha2carta1 = turisticos2; break;
+        case 5: escolha1carta1 = densidade1; escolha2carta1 = densidade2; break;
+        default:
+            printf("Opção inválida no primeiro atributo!\n");
+        break;
+    }
+    switch (escolha2) {
+        case 1: escolha1carta2 = populacao1; escolha2carta2 = populacao2; break;
+        case 2: escolha1carta2 = area1; escolha2carta2 = area2; break;
+        case 3: escolha1carta2 = pib1; escolha2carta2 = pib2; break;
+        case 4: escolha1carta2 = turisticos1; escolha2carta2 = turisticos2; break;
+        case 5: escolha1carta2 = densidade1; escolha2carta2 = densidade2; break;
+        default:
+            printf("Opção inválida no segundo atributo!\n");
+        break;
+    }
+    double somacarta1 = escolha1carta1 + escolha1carta2;
+    double somacarta2 = escolha2carta1 + escolha2carta2;
+    printf("\n================ RESULTADOS ================\n");
+    printf("Cartas: %s vs %s\n", cidade1, cidade2);
+    
+    printf("Atributos comparados: ");
+    switch(escolha1) {
+        case 1: printf("POPULAÇÃO"); break;
+        case 2: printf("ÁREA"); break;
+        case 3: printf("PIB"); break;
+        case 4: printf("PONTOS TURISTICOS"); break;
+        case 5: printf("DENSIDADE DEMOGRÁFICA"); break;
+    }
+    printf(" e ");
+    switch(escolha2) {
+        case 1: printf("POPULAÇÃO"); break;
+        case 2: printf("ÁREA"); break;
+        case 3: printf("PIB"); break;
+        case 4: printf("PONTOS TURISTICOS"); break;
+        case 5: printf("DENSIDADE DEMOGRÁFICA"); break;
+    }
+    //Exibindo os valores carta 1
+    printf("\n--- %s ---\n", cidade1);
+    switch(escolha1) {
+        case 1: printf("Populacao: %.2f\n", escolha1carta1); break;
+        case 2: printf("Area: %.2f\n", escolha1carta1); break;
+        case 3: printf("PIB: %.2f\n", escolha1carta1); break;
+        case 4: printf("Pontos Turisticos: %.2f\n", escolha1carta1); break;
+        case 5: printf("Densidade Demografica: %.2f\n", escolha1carta1); break;
+    }
+    switch(escolha2) {
+        case 1: printf("Populacao: %.2f\n", escolha1carta2); break;
+        case 2: printf("Area: %.2f\n", escolha1carta2); break;
+        case 3: printf("PIB: %.2f\n", escolha1carta2); break;
+        case 4: printf("Pontos Turisticos: %.2f\n", escolha1carta2); break;
+        case 5: printf("Densidade Demografica: %.2f\n", escolha1carta2); break;
+    }
+    printf("SOMA: %.2f\n", somacarta1);
+    //Exibindo os valores carta 2
+    printf("\n--- %s ---\n", cidade2);
+    switch(escolha1) {
+        case 1: printf("Populacao: %.2f\n", escolha2carta2); break;
+        case 2: printf("Area: %.2f\n", escolha2carta2); break;
+        case 3: printf("PIB: %.2f\n", escolha2carta2); break;
+        case 4: printf("Pontos Turisticos: %.2f\n", escolha2carta2); break;
+        case 5: printf("Densidade Demografica: %.2f\n", escolha2carta2); break;
+    }
+    switch(escolha2) {
+        case 1: printf("Populacao: %.2f\n", escolha2carta2); break;
+        case 2: printf("Area: %.2f\n", escolha2carta2); break;
+        case 3: printf("PIB: %.2f\n", escolha2carta2); break;
+        case 4: printf("Pontos Turisticos: %.2f\n", escolha2carta2); break;
+        case 5: printf("Densidade Demografica: %.2f\n", escolha2carta2); break;
+    }
+    printf("SOMA: %.2f\n\n", somacarta2);
+
+    printf("================ VENCEDOR ===============\n");
+
+    if (somacarta1 > somacarta2) {
+        printf("A carta vencedora e a Carta 1: %s!\n", cidade1);
+    } else if(somacarta2 > somacarta1){
+        printf("A carta vencedora e a Carta 2: %s!\n", cidade2);
+    } else {
+        printf("Empate! Ambas as cartas tem a mesma combinação!!");
+    }
+
+    //DESAFIO AVENTUREIRO.
+    /*
     printf("\n ======= ESCOLHA DE DUELO =======\n");
     printf("Escolha um dos atributos: \n");
     printf("1. População\n");
@@ -209,7 +327,7 @@ case 5:
         printf("Opção Inválida! Escolha um número de 1 a 5.");
         break;
     }
-    
+    */
     
     
     
